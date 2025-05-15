@@ -15,11 +15,17 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
+            "@react-module-federation-webpack/assets": [
+                "libs/shared/assets/src/index.ts"
+            ],
             "@react-module-federation-webpack/remote-about": [
                 "libs/remote-about/src/index.ts"
             ],
             "@react-module-federation-webpack/remote-shop": [
                 "libs/remote-shop/src/index.ts"
+            ],
+            "@react-module-federation-webpack/styles": [
+                "libs/shared/styles/src/index.ts"
             ],
             "about/Module": ["apps/about/src/remote-entry.ts"],
             "cart/Module": ["apps/cart/src/remote-entry.ts"],

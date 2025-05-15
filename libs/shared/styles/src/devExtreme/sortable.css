@@ -1,0 +1,11 @@
+.dx-sortable {
+    overflow: auto;
+}
+
+.dx-sortable .dx-sortable-source {
+    opacity: 0.5;
+}
+
+.dx-sortable-placeholder {
+    border-color: #726EE4;
+}

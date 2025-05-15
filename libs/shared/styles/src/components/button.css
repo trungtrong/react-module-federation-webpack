@@ -1,0 +1,12 @@
+button {
+    padding-block: 0;
+    padding-inline: 0;
+    border-width: 0;
+    background-color: transparent;
+}
+
+.button-red {
+  font-family: 'Inter';
+  font-weight: 500;
+  background-color: red;
+}
