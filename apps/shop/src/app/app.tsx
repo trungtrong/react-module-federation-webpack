@@ -1,7 +1,10 @@
+// eslint-disable-next-line @nx/enforce-module-boundaries
+import RemoteShop from 'libs/remote-shop/src/lib/remote-shop';
+
 export function App() {
   return (
-    <div>
-      <div title="shop" />
+    <div title="shop">
+      <RemoteShop />
     </div>
   );
 }
