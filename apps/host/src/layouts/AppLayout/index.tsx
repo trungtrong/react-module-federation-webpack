@@ -1,0 +1,21 @@
+import { memo, Suspense } from 'react';
+
+import Views from '../Views';
+import Sidebar from '../Sidebar';
+import styles from './index.module.css';
+
+const AppLayout = () => {
+
+    return (
+        <Suspense
+            fallback={<div className="flex flex-auto flex-col h-[100vh]"></div>}
+        >
+            <div className={styles['app-container']}>
+              <Sidebar></Sidebar>
+              <Views></Views>
+            </div>
+        </Suspense>
+    );
+};
+
+export default memo(AppLayout);
