@@ -17,7 +17,7 @@
         "main": "apps/cart/src/main.ts",
         "tsConfig": "apps/cart/tsconfig.app.json",
         "assets": ["apps/cart/src/favicon.ico", "apps/cart/src/assets"],
-        "styles": ["apps/cart/src/styles.tailwind"],
+        "styles": ["apps/cart/src/styles.css"],
         "scripts": [],
         "webpackConfig": "apps/cart/webpack.config.ts",
         "postcssConfig": "apps/cart/postcss.config.js"

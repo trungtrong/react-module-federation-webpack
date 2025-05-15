@@ -3,6 +3,7 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/host/src",
   "projectType": "application",
+  "implicitDependencies": ["shop", "cart", "about"],
   "tags": [],
   "targets": {
     "build": {
@@ -17,7 +18,7 @@
         "main": "apps/host/src/main.ts",
         "tsConfig": "apps/host/tsconfig.app.json",
         "assets": ["apps/host/src/favicon.ico", "apps/host/src/assets"],
-        "styles": ["apps/host/src/styles.tailwind"],
+        "styles": ["apps/host/src/styles.css"],
         "scripts": [],
         "webpackConfig": "apps/host/webpack.config.ts",
         "postcssConfig": "apps/host/postcss.config.js"

@@ -2,7 +2,10 @@
   "name": "@react-module-federation-webpack/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start:host": "npx nx serve host --open",
+    "build:card:dev": "nx run cart:build:development"
+  },
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
