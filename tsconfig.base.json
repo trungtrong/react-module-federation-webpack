@@ -18,11 +18,23 @@
             "@react-module-federation-webpack/assets": [
                 "libs/shared/assets/src/index.ts"
             ],
+            "@react-module-federation-webpack/core": [
+                "libs/shared/core/src/index.ts"
+            ],
+            "@react-module-federation-webpack/core/*": [
+                "libs/shared/core/src/*"
+            ],
             "@react-module-federation-webpack/remote-about": [
                 "libs/remote-about/src/index.ts"
             ],
+            "@react-module-federation-webpack/remote-about/*": [
+                "libs/remote-about/src/*"
+            ],
             "@react-module-federation-webpack/remote-shop": [
                 "libs/remote-shop/src/index.ts"
+            ],
+            "@react-module-federation-webpack/remote-shop/*": [
+                "libs/remote-shop/src/*"
             ],
             "@react-module-federation-webpack/styles": [
                 "libs/shared/styles/src/index.ts"

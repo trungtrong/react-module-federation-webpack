@@ -1,7 +1,7 @@
 {
-  "name": "utils",
+  "name": "core",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/shared/utils/src",
+  "sourceRoot": "libs/shared/core/src",
   "projectType": "library",
   "tags": [
     "type:util",
@@ -14,7 +14,7 @@
         "{workspaceRoot}/coverage/{projectRoot}"
       ],
       "options": {
-        "jestConfig": "libs/shared/utils/jest.config.ts"
+        "jestConfig": "libs/shared/core/jest.config.ts"
       }
     }
   }

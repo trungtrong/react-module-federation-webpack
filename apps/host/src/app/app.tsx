@@ -1,7 +1,14 @@
-import { createBrowserRouter, createRoutesFromElements, Link, Route, RouterProvider, Routes } from 'react-router-dom';
+import {
+    createBrowserRouter,
+    createRoutesFromElements,
+    Route,
+    RouterProvider,
+} from 'react-router-dom';
 import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorInfo } from 'react';
+//
 import { AppLayout } from '../layouts';
+import { AppInitializer } from '@react-module-federation-webpack/core/app-initializer';
 
 const AppRouter = createBrowserRouter(
     createRoutesFromElements(
@@ -22,7 +29,9 @@ export function App() {
                 console.error(info);
             }}
         >
-            <RouterProvider router={AppRouter} />
+            <AppInitializer>
+                <RouterProvider router={AppRouter} />
+            </AppInitializer>
         </ErrorBoundary>
     );
 }

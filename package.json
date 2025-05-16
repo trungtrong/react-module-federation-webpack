@@ -9,7 +9,9 @@
     "start:card:dev": "nx run cart:serve:development",
     "build:about:dev": "nx run about:build:development",
     "build:shop:dev": "nx run shop:build:development",
-    "build:card:dev": "nx run cart:build:development"
+    "build:card:dev": "nx run cart:build:development",
+    "// - Mock API": "Mock API",
+    "json-server": "json-server --routes routes.json --watch db.json --port 8081"
   },
   "private": true,
   "devDependencies": {
@@ -36,6 +38,7 @@
     "@testing-library/dom": "10.4.0",
     "@testing-library/react": "16.1.0",
     "@types/jest": "^29.5.12",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.0.0",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
@@ -51,6 +54,7 @@
     "eslint-plugin-react-hooks": "5.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "json-server": "^0.17.4",
     "nx": "21.0.3",
     "postcss": "8.4.38",
     "prettier": "^2.6.2",
@@ -63,10 +67,13 @@
     "typescript-eslint": "^8.19.0"
   },
   "dependencies": {
+    "axios": "^1.6.0",
     "classnames": "^2.5.1",
+    "lodash-es": "^4.17.21",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-error-boundary": "^4.0.11",
-    "react-router-dom": "6.29.0"
+    "react-router-dom": "6.29.0",
+    "rxjs": "^7.8.1"
   }
 }

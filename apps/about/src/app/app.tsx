@@ -1,5 +1,4 @@
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import RemoteAbout from 'libs/remote-about/src/lib/remote-about';
+import RemoteAbout from '@react-module-federation-webpack/remote-about/lib/remote-about';
 
 export function App() {
   return (
