@@ -3,8 +3,8 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/host/src",
   "projectType": "application",
-  "implicitDependencies": ["shop", "cart", "about"],
-  "tags": [],
+  "implicitDependencies": ["shop", "cart", "about", "shared-assets", "shared-styles"],
+  "tags": ["type:app", "scope:cart"],
   "targets": {
     "build": {
       "executor": "@nx/webpack:webpack",

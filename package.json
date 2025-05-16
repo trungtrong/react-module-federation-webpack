@@ -3,7 +3,12 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start:host": "npx nx serve host --open",
+    "start:host": "npx nx serve host",
+    "start:about:dev": "nx run about:serve:development",
+    "start:shop:dev": "nx run shop:serve:development",
+    "start:card:dev": "nx run cart:serve:development",
+    "build:about:dev": "nx run about:build:development",
+    "build:shop:dev": "nx run shop:build:development",
     "build:card:dev": "nx run cart:build:development"
   },
   "private": true,

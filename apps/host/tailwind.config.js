@@ -4,17 +4,18 @@ const baseConfig = require('../../tailwind.base.config');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  ...baseConfig,
-  content: [
-    ...(baseConfig?.content || []),
-    join(
-      __dirname,
-      '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
-    ),
-    // import tailwind to its libraries and dependencies
-    ...createGlobPatternsForDependencies(__dirname),
-  ],
-  theme: {
-    extend: baseConfig.theme.extend,
-  }
+    content: [
+        ...(baseConfig?.content || []),
+        join(
+            __dirname,
+            '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'
+        ),
+        // import tailwind to its libraries and dependencies
+        ...createGlobPatternsForDependencies(__dirname),
+        // INFO : Add the following line to include the tailwind styles from the info application
+        ...createGlobPatternsForDependencies(join(__dirname, 'apps/about')),
+        ...createGlobPatternsForDependencies(join(__dirname, 'apps/shop')),
+        ...createGlobPatternsForDependencies(join(__dirname, 'apps/cart')),
+    ],
+    ...baseConfig,
 };
