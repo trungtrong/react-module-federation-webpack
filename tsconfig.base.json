@@ -27,6 +27,9 @@
             "@react-module-federation-webpack/styles": [
                 "libs/shared/styles/src/index.ts"
             ],
+            "@react-module-federation-webpack/utils": [
+                "libs/shared/utils/src/index.ts"
+            ],
             "about/Module": ["apps/about/src/remote-entry.ts"],
             "cart/Module": ["apps/cart/src/remote-entry.ts"],
             "shop/Module": ["apps/shop/src/remote-entry.ts"]
