@@ -7,7 +7,9 @@
   "targets": {
     "build": {
       "executor": "@nx/webpack:webpack",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
@@ -16,18 +18,53 @@
         "baseHref": "/",
         "main": "apps/cart/src/main.ts",
         "tsConfig": "apps/cart/tsconfig.app.json",
-        "assets": ["apps/cart/src/favicon.ico", "apps/cart/src/assets"],
-        "styles": ["apps/cart/src/styles.css"],
+        "assets": [
+          "apps/cart/src/favicon.ico",
+          "apps/cart/src/assets"
+        ],
+        "styles": [
+          "apps/cart/src/styles.css"
+        ],
         "scripts": [],
         "webpackConfig": "apps/cart/webpack.config.ts",
         "postcssConfig": "apps/cart/postcss.config.js"
       },
       "configurations": {
-        "development": {
+        "local": {
           "extractLicenses": false,
           "optimization": false,
           "sourceMap": true,
           "vendorChunk": true
+        },
+        "development": {
+          "fileReplacements": [
+            {
+              "replace": "apps/cart/src/environments/environment.ts",
+              "with": "apps/cart/src/environments/environment.dev.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/cart/webpack.config.prod.ts"
+        },
+        "staging": {
+          "fileReplacements": [
+            {
+              "replace": "apps/cart/src/environments/environment.ts",
+              "with": "apps/cart/src/environments/environment.staging.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/cart/webpack.config.prod.ts"
         },
         "production": {
           "fileReplacements": [
@@ -55,8 +92,8 @@
         "port": 4202
       },
       "configurations": {
-        "development": {
-          "buildTarget": "cart:build:development"
+        "local": {
+          "buildTarget": "cart:build:local"
         },
         "production": {
           "buildTarget": "cart:build:production",
@@ -84,7 +121,9 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/cart/jest.config.ts"
       }

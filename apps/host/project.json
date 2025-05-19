@@ -40,6 +40,12 @@
         "postcssConfig": "apps/host/postcss.config.js"
       },
       "configurations": {
+        "local": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
         "development": {
           "fileReplacements": [
             {
@@ -96,8 +102,8 @@
         "port": 4200
       },
       "configurations": {
-        "development": {
-          "buildTarget": "host:build:development"
+        "local": {
+          "buildTarget": "host:build:local"
         },
         "production": {
           "buildTarget": "host:build:production",

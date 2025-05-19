@@ -23,7 +23,7 @@ export function useInjector(): IInjectorContextProps {
 
 export function useInject<T>(dependencyName: string) {
     const { injector } = useInjector();
-    return Inject<T>(injector, dependencyName);
+    return Inject<T>({ injector, dependencyName });
 }
 
 export const InjectorContextConsumer = InjectorContext.Consumer;
