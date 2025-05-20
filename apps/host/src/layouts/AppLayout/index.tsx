@@ -3,7 +3,7 @@ import { memo, Suspense } from 'react';
 import Views from '../Views';
 import Sidebar from '../Sidebar';
 import styles from './index.module.css';
-import { useAppInitializer } from '@react-module-federation-webpack/core/app-initializer';
+import { useAppInitializer } from '@libs/shared/core/app-initializer';
 
 const AppLayout = () => {
     const isInitializer = useAppInitializer();

@@ -1,4 +1,4 @@
-import RemoteShop from '@react-module-federation-webpack/remote-shop/lib/remote-shop';
+import RemoteShop from '@apps/remote-shop/lib/remote-shop';
 
 export function App() {
   return (

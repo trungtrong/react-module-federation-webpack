@@ -1,5 +1,5 @@
-import { SvgSpinner } from '@react-module-federation-webpack/assets/svg-icons';
-import { ICommonProps } from '@react-module-federation-webpack/core/models';
+import { SvgSpinner } from '@libs/shared/assets/svg-icons';
+import { ICommonProps } from '@libs/shared/core/models';
 import classNames from 'classnames';
 import { ElementType, forwardRef, memo, useMemo } from 'react';
 

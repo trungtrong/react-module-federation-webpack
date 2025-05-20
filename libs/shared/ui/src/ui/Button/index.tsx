@@ -1,7 +1,7 @@
 import type { MouseEvent } from 'react';
 import { forwardRef } from 'react';
 
-import { ICommonProps } from '@react-module-federation-webpack/core/models';
+import { ICommonProps } from '@libs/shared/core/models';
 
 export interface ButtonProps extends ICommonProps {
     disabled?: boolean;

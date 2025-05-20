@@ -22,6 +22,10 @@
     "build:about:production": "nx run about:build:production",
     "build:shop:production": "nx run shop:build:production",
     "build:card:production": "nx run cart:build:production",
+    "// - NX WORKSPACE": "nx command",
+    "nx:graph": "npx nx graph --watch",
+    "nx:reset": "npx nx reset",
+    "nx:sync": "npx nx sync",
     "// - Mock API": "Mock API",
     "json-server": "json-server --routes routes.json --watch db.json --port 8081"
   },

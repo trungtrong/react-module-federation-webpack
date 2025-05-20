@@ -8,7 +8,7 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorInfo } from 'react';
 //
 import { AppLayout } from '../layouts';
-import { AppInitializer } from '@react-module-federation-webpack/core/app-initializer';
+import { AppInitializer } from '@libs/shared/core/app-initializer';
 
 const AppRouter = createBrowserRouter(
     createRoutesFromElements(

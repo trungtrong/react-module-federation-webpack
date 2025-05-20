@@ -1,4 +1,4 @@
-import RemoteAbout from '@react-module-federation-webpack/remote-about/lib/remote-about';
+import RemoteAbout from '@apps/remote-about/lib/remote-about';
 
 export function App() {
   return (

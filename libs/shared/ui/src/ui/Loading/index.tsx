@@ -1,4 +1,4 @@
-import { ICommonProps } from '@react-module-federation-webpack/core/models';
+import { ICommonProps } from '@libs/shared/core/models';
 import classNames from 'classnames';
 import { ElementType, memo, ReactNode } from 'react';
 import Spinner from '../Spinner';

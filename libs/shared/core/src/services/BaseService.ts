@@ -18,7 +18,7 @@ import { AppErrorCode } from '../enums';
 import { ApiErrorModel } from '../models';
 import environment from '../environments';
 import { RoutePathsEnum } from '../configs';
-import { AppStorage } from '@react-module-federation-webpack/utils';
+import { AppStorage } from '@libs/shared/utils';
 
 const BaseService = axios.create({
     baseURL: environment.ENV_API_BASE_URL,
