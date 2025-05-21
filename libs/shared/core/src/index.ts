@@ -1,3 +1,11 @@
+import AppInitializer from './app-initializer/AppInitializer';
+import useAppInitializer from './app-initializer/useAppInitializer';
+
+export {
+  AppInitializer,
+  useAppInitializer
+}
+
 export * from './configs';
 export * from './context';
 export * from './guards';

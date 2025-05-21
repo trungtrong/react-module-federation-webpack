@@ -8,7 +8,8 @@ import { ErrorBoundary } from 'react-error-boundary';
 import { ErrorInfo } from 'react';
 //
 import { AppLayout } from '../layouts';
-import { AppInitializer } from '@libs/shared/core/app-initializer';
+import { AppInitializer } from '@libs/shared/core';
+import { environment as environmentRoot } from '../environments/environment';
 
 const AppRouter = createBrowserRouter(
     createRoutesFromElements(
@@ -29,7 +30,7 @@ export function App() {
                 console.error(info);
             }}
         >
-            <AppInitializer>
+            <AppInitializer environmentRoot={environmentRoot}>
                 <RouterProvider router={AppRouter} />
             </AppInitializer>
         </ErrorBoundary>

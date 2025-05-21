@@ -5,7 +5,6 @@
  */
 import React, { useContext } from 'react';
 import { Injector } from './injector';
-import { Inject } from './injector-root';
 
 export interface IInjectorContextProps {
     injector: Injector;
@@ -23,7 +22,7 @@ export function useInjector(): IInjectorContextProps {
 
 export function useInject<T>(dependencyName: string) {
     const { injector } = useInjector();
-    return Inject<T>({ injector, dependencyName });
+    return injector.get<T>(dependencyName);
 }
 
 export const InjectorContextConsumer = InjectorContext.Consumer;

@@ -6,13 +6,12 @@ import useApiMutation from '../hooks/useApiMutation';
 import { UserStorage } from './../../../utils/src';
 
 const useAppInitializer = () => {
-
     const [isInitializer, setIsInitializer] = useState(false);
-    //
+
     const { mutate: getApisInitializedMutate } = useApiMutation({
         mutationFn: () => {
             return Promise.all([
-              UsersService.getUserInfo()
+                UsersService.getUserInfo()
             ]);
         },
         onSuccess: ([userInfo]) => {
@@ -46,7 +45,7 @@ const useAppInitializer = () => {
     }, []);
 
     const signOut = useCallback(() => {
-      //
+        //
     }, []);
 
     return isInitializer;

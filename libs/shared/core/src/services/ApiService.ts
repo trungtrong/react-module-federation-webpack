@@ -1,14 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import environment from '../environments';
+import { EnvironmentHelper } from '../environments';
 import BaseService from './BaseService';
 
 export const ApiService = {
+    getApiBaseUrl() {
+        return EnvironmentHelper.environment.API_BASE_URL;
+    },
+
     get<T>(params: {
         url: string;
         queryParams?: Record<string, any>;
     }): Promise<T> {
-        return BaseService.get<T>(
-            `${environment.ENV_API_BASE_URL}/${params.url}`,
+        console.log('ApiService', EnvironmentHelper.environment);
+        return BaseService.getInstance().get<T>(
+            `${this.getApiBaseUrl()}/${params.url}`,
             {
                 params: params?.queryParams,
             }
@@ -22,8 +27,8 @@ export const ApiService = {
         data?: any;
         queryParams?: Record<string, any>;
     }): Promise<T> {
-        return BaseService.post<T>(
-            `${environment.ENV_API_BASE_URL}/${params.url}`,
+        return BaseService.getInstance().post<T>(
+            `${this.getApiBaseUrl()}/${params.url}`,
             params.data,
             { params: params?.queryParams }
         )
@@ -36,8 +41,8 @@ export const ApiService = {
         data?: any;
         queryParams?: Record<string, any>;
     }): Promise<T> {
-        return BaseService.put<T>(
-            `${environment.ENV_API_BASE_URL}/${params.url}`,
+        return BaseService.getInstance().put<T>(
+            `${this.getApiBaseUrl()}/${params.url}`,
             params.data,
             { params: params?.queryParams }
         )
@@ -49,8 +54,8 @@ export const ApiService = {
         url: string;
         queryParams?: Record<string, any>;
     }): Promise<T> {
-        return BaseService.delete<T>(
-            `${environment.ENV_API_BASE_URL}/${params.url}`,
+        return BaseService.getInstance().delete<T>(
+            `${this.getApiBaseUrl()}/${params.url}`,
             {
                 params: params?.queryParams,
             }

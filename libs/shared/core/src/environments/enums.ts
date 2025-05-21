@@ -10,6 +10,6 @@ export const NODE_ENV: NodeEnvironmentsEnum = process.env.NODE_ENV as NodeEnviro
 export enum EnvironmentsEnum {
     Local = 'local',
     Development = 'development',
-    Stage = 'stage',
+    Staging = 'staging',
     Production = 'production'
 }

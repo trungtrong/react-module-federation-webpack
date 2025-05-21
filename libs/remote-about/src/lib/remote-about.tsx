@@ -1,9 +1,15 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 
 import { Button } from '@libs/shared/ui';
+import { EnvironmentHelper } from '@libs/shared/core';
 import { TestHelper } from '@libs/shared/utils';
 
-export function RemoteAbout() {
+const RemoteAbout = () => {
+    useEffect(() => {
+      const environment = EnvironmentHelper.environment;
+        console.log('environment', environment);
+    }, []);
+
     const decrement = useCallback(() => {
         TestHelper.decreaseCount();
     }, []);
@@ -26,7 +32,7 @@ export function RemoteAbout() {
                 <span aria-label="Count">count = {TestHelper.getCount()}</span>
                 <Button
                     aria-label="Increment value"
-                    onClick={() => increment()}
+                    onClick={increment}
                 >
                     Increase
                 </Button>

@@ -4,6 +4,7 @@ import { useCallback, useEffect } from 'react';
 import { environment } from '@host/environment';
 
 import { Button } from '@libs/shared/ui';
+// import { Test2Helper } from '@libs/shared/core';
 import { TestHelper } from '@libs/shared/utils';
 
 const Home = () => {
