@@ -11,7 +11,6 @@ export function shared(pkg: string): undefined | false | SharedLibraryConfig {
         singleton: true,
         eager: true
       } as SharedLibraryConfig;
-      return undefined;
     case pkg === '@libs/utils':
     case pkg === '@libs/shared/core':
     default:

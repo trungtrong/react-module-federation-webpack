@@ -22,13 +22,13 @@ export class EnvironmentHelper {
         return this._environment;
     }
 
-    static isProd() {
+    static get isProd() {
         return this.environment.name === EnvironmentsEnum.Production;
     }
-    static isStage() {
+    static get isStage() {
         return this.environment.name === EnvironmentsEnum.Staging;
     }
-    static isDev() {
+    static get isDev() {
         return this.environment.name === EnvironmentsEnum.Development;
     }
 }
