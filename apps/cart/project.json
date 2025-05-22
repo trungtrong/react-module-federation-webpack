@@ -3,7 +3,10 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/cart/src",
   "projectType": "application",
-  "tags": [],
+  "tags": [
+    "type:app-remote",
+    "scope:cart"
+  ],
   "targets": {
     "build": {
       "executor": "@nx/webpack:webpack",

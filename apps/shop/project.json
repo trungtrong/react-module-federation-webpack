@@ -4,7 +4,7 @@
   "sourceRoot": "apps/shop/src",
   "projectType": "application",
   "tags": [
-    "type:app",
+    "type:app-remote",
     "scope:shop"
   ],
   "targets": {

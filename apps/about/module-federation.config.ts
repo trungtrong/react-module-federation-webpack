@@ -1,13 +1,13 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { shared } from '../../module-federation.base.config';
+import { sharedDependencies } from '../../module-federation.base.config';
 
 const config: ModuleFederationConfig = {
   name: 'about',
   exposes: {
     './Module': './src/remote-entry.ts',
   },
-  shared: shared
+  shared: sharedDependencies
 };
 
 /**

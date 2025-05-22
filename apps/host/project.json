@@ -11,7 +11,7 @@
     "shared-styles"
   ],
   "tags": [
-    "type:app",
+    "type:app-shell",
     "scope:cart"
   ],
   "targets": {

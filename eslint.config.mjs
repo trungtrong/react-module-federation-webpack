@@ -17,8 +17,9 @@ export default [
                     allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
                     depConstraints: [
                         {
-                            sourceTag: 'type:app',
+                            sourceTag: 'type:app-shell',
                             onlyDependOnLibsWithTags: [
+                                'type:app-remote',
                                 'type:feature',
                                 'type:ui',
                                 'type:util',

@@ -1,6 +1,6 @@
 import { ModuleFederationConfig } from '@nx/module-federation';
 // eslint-disable-next-line @nx/enforce-module-boundaries
-import { shared } from '../../module-federation.base.config';
+import { sharedDependencies } from '../../module-federation.base.config';
 
 const config: ModuleFederationConfig = {
   name: 'host',
@@ -17,7 +17,7 @@ const config: ModuleFederationConfig = {
    *
    */
   remotes: ['shop', 'cart', 'about'],
-  shared: shared,
+  shared: sharedDependencies,
 };
 
 /**
