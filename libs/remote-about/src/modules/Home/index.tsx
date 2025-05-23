@@ -4,7 +4,7 @@ import { Button } from '@libs/shared/ui';
 import { EnvironmentHelper } from '@libs/shared/core';
 import { TestHelper } from '@libs/shared/utils';
 
-const RemoteAbout = () => {
+const AboutHome = () => {
     useEffect(() => {
       const environment = EnvironmentHelper.environment;
         console.log('environment', environment);
@@ -41,4 +41,4 @@ const RemoteAbout = () => {
     );
 }
 
-export default RemoteAbout;
+export default AboutHome;

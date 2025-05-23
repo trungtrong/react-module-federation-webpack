@@ -1,1 +1,1 @@
-export * from './lib/remote-about';
+export * from './remote-about.routing-module';

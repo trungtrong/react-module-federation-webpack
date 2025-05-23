@@ -1,9 +1,9 @@
-import RemoteAbout from '@apps/remote-about/lib/remote-about';
+import RemoteAboutRoutingModule from '@apps/remote-about/remote-about.routing-module';
 
 export function App() {
   return (
     <div title="about">
-      <RemoteAbout />
+      <RemoteAboutRoutingModule />
     </div>
   );
 }

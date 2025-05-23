@@ -2,6 +2,7 @@ import { Outlet, Route, Routes } from 'react-router-dom';
 import { lazy, memo } from 'react';
 
 import Home from '../../modules/Home';
+import { PageError404 } from '@libs/shared/ui';
 
 const Shop = lazy(() => import('shop/Module'));
 const Cart = lazy(() => import('cart/Module'));
@@ -15,8 +16,10 @@ const View = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<Shop />} />
                 <Route path="/cart" element={<Cart />} />
-                <Route path="/about" element={<About />} />
+                <Route path="/about/*" element={<About />} />
             </Route>
+
+            <Route path='*' element={<PageError404 />}></Route>
         </Routes>
     );
 };
