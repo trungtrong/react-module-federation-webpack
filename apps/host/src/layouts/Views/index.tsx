@@ -14,7 +14,7 @@ const View = () => {
         <Routes>
             <Route path="/" element={<Outlet />}>
                 <Route path="/" element={<Home />} />
-                <Route path="/shop" element={<Shop />} />
+                <Route path="/shop/*" element={<Shop />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/about/*" element={<About />} />
             </Route>

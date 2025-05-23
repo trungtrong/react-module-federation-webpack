@@ -1,9 +1,9 @@
-import RemoteShop from '@apps/remote-shop/lib/remote-shop';
+import RemoteShopRoutingModule from '@apps/remote-shop/remote-shop.routing-module';
 
 export function App() {
   return (
     <div title="shop">
-      <RemoteShop />
+      <RemoteShopRoutingModule />
     </div>
   );
 }

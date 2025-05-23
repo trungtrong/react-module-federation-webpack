@@ -1,1 +1,1 @@
-export * from './lib/remote-shop';
+export * from './remote-shop.routing-module';
