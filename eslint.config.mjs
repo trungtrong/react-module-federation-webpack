@@ -23,6 +23,7 @@ export default [
                                 'type:feature',
                                 'type:ui',
                                 'type:util',
+                                'type:data-access'
                             ],
                         },
                         {
@@ -31,6 +32,7 @@ export default [
                                 'type:feature',
                                 'type:ui',
                                 'type:util',
+                                'type:data-access'
                             ],
                         },
                         {

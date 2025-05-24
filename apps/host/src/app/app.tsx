@@ -10,6 +10,8 @@ import { ErrorInfo } from 'react';
 import { AppLayout } from '../layouts';
 import { AppInitializer } from '@libs/shared/core';
 import { environment as environmentRoot } from '../environments/environment';
+import { Provider } from 'react-redux';
+import store from '@libs/shared/store/store';
 
 const AppRouter = createBrowserRouter(
     createRoutesFromElements(
@@ -30,9 +32,11 @@ export function App() {
                 console.error(info);
             }}
         >
-            <AppInitializer environmentRoot={environmentRoot}>
-                <RouterProvider router={AppRouter} />
-            </AppInitializer>
+            <Provider store={store}>
+                <AppInitializer environmentRoot={environmentRoot}>
+                    <RouterProvider router={AppRouter} />
+                </AppInitializer>
+            </Provider>
         </ErrorBoundary>
     );
 }

@@ -15,18 +15,11 @@
         "skipDefaultLibCheck": true,
         "baseUrl": ".",
         "paths": {
-            "@apps/remote-about": [
-                "libs/remote-about/src/index.ts"
-            ],
-            "@apps/remote-about/*": [
-                "libs/remote-about/src/*"
-            ],
-            "@apps/remote-shop": [
-                "libs/remote-shop/src/index.ts"
-            ],
-            "@apps/remote-shop/*": [
-                "libs/remote-shop/src/*"
-            ],
+            "@apps/remote-about": ["libs/remote-about/src/index.ts"],
+            "@apps/remote-about/*": ["libs/remote-about/src/*"],
+            "@apps/remote-shop": ["libs/remote-shop/src/index.ts"],
+            "@apps/remote-shop/*": ["libs/remote-shop/src/*"],
+            "@host/environment": ["apps/host/src/environments/environment.ts"],
             "@libs/shared/assets": ["libs/shared/assets/src/index.ts"],
             "@libs/shared/assets/*": ["libs/shared/assets/src/*"],
             "@libs/shared/core": ["libs/shared/core/src/index.ts"],
@@ -36,7 +29,11 @@
             "@libs/shared/ui/*": ["libs/shared/ui/src/*"],
             "@libs/shared/utils": ["libs/shared/utils/src/index.ts"],
             "@libs/shared/utils/*": ["libs/shared/utils/src/*"],
-            "@host/environment": ["apps/host/src/environments/environment.ts"],
+            "@libs/shared/store": ["libs/shared/store/src/index.ts"],
+            "@libs/shared/store/*": ["libs/shared/store/src/*"],
+            "@react-module-federation-webpack/store": [
+                "libs/shared/store/src/index.ts"
+            ],
             "about/Module": ["apps/about/src/remote-entry.ts"],
             "cart/Module": ["apps/cart/src/remote-entry.ts"],
             "shop/Module": ["apps/shop/src/remote-entry.ts"]
