@@ -1,3 +1,4 @@
+import { environment } from './src/environments/environment';
 import { composePlugins, withNx } from '@nx/webpack';
 import { withReact } from '@nx/react';
 import { withModuleFederation } from '@nx/module-federation/webpack';
@@ -23,19 +24,19 @@ export default composePlugins(
     withNx(),
     withReact(),
     withModuleFederation(config, { dts: false }),
-    (config) => {
+    /*(config) => {
         (config.plugins as Array<unknown>).push(new webpack.DefinePlugin(getProcessEnv()));
         return config;
-    },
+    },*/
 );
 
 function getProcessEnv() {
     // console.log('dotenv', JSON.stringify(dotenv.config()));
     console.log('process', process.env);
+    console.log('environment', environment);
     return {
         'process.ev': {
             'NODE_ENV': process.env.NODE_ENV,
-            'NEXT_PUBLIC_DOMAIN_URL': process.env.NEXT_PUBLIC_DOMAIN_URL,
         }
     };
 }

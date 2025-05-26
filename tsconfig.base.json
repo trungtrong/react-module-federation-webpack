@@ -19,6 +19,8 @@
             "@apps/remote-about/*": ["libs/remote-about/src/*"],
             "@apps/remote-shop": ["libs/remote-shop/src/index.ts"],
             "@apps/remote-shop/*": ["libs/remote-shop/src/*"],
+            "@apps/remote-cart": ["libs/remote-cart/src/index.ts"],
+            "@apps/remote-cart/*": ["libs/remote-cart/src/*"],
             "@host/environment": ["apps/host/src/environments/environment.ts"],
             "@libs/shared/assets": ["libs/shared/assets/src/index.ts"],
             "@libs/shared/assets/*": ["libs/shared/assets/src/*"],
