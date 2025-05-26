@@ -7,7 +7,7 @@
         "npm": "Please install by running: npm i"
     },
     "scripts": {
-        "start:host": "cross-env TARGET_ENV=local NODE_ENV=local nx run host:serve:local",
+        "start:host": "cross-env TARGET_ENV=local NODE_ENV=local npx nx run host:serve:local",
         "start:about": "cross-env TARGET_ENV=local NODE_ENV=local nx run about:serve:local",
         "start:shop": "cross-env TARGET_ENV=local NODE_ENV=local nx run shop:serve:local",
         "start:card": "cross-env TARGET_ENV=local NODE_ENV=local nx run cart:serve:local",
@@ -22,10 +22,10 @@
         "build:shop:staging": "cross-env TARGET_ENV=staging nx run shop:build:staging",
         "build:card:staging": "cross-env TARGET_ENV=staging nx run cart:build:staging",
         "// - BUILD PRODUCTION": "Build Production",
-        "build:host:prod": "nx run host:build:production",
-        "build:about:prod": "nx run about:build:production",
-        "build:shop:prod": "nx run shop:build:production",
-        "build:card:prod": "nx run cart:build:production",
+        "build:host:prod": "npx nx run host:build:production",
+        "build:about:prod": "npx nx run about:build:production",
+        "build:shop:prod": "npx nx run shop:build:production",
+        "build:card:prod": "npx nx run cart:build:production",
         "// - NX WORKSPACE": "nx command",
         "nx:graph": "npx nx graph --watch",
         "nx:reset": "npx nx reset",
