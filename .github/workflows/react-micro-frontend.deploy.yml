@@ -37,9 +37,9 @@ jobs:
         run: npm run build:host:prod -- --base-href /react-module-federation-webpack/
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: "dist/gh-pages-workflow/browser/"
+          path: "dist/react-module-federation-webpack/browser/"
   # Deployment job
   deploy:
     environment:
@@ -54,4 +54,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
