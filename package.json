@@ -3,7 +3,7 @@
     "version": "0.0.0",
     "license": "MIT",
     "engines": {
-        "node": "^18.17.1 || >=20.0.0",
+        "node": "^18.19.1 || >=20.0.0",
         "npm": "Please install by running: npm i"
     },
     "scripts": {
