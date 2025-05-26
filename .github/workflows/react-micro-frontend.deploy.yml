@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Build React - Nx Module Federation app
-        run: npm run build:host:prod
+        run: npm run build:host:prod -- --base-href /react-module-federation-webpack/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
