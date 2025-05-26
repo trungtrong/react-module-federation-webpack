@@ -5,6 +5,6 @@ import { ImportMetaEnv } from '@libs/shared/core/environments';
 export const environment: ImportMetaEnv = {
   name: "prod",
   production: true,
-  DOMAIN_URL: "http://localhost:3000",
-  API_BASE_URL: "http://localhost:8081"
+  DOMAIN_URL: "https://trungtrong.github.com/react-module-federation-webpack",
+  API_BASE_URL: "https://trungtrong.github.com/react-module-federation-webpack/api"
 };

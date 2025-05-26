@@ -25,9 +25,9 @@ const prodConfig: ModuleFederationConfig = {
    * ]
    */
   remotes: [
-    ['shop', 'http://localhost:4201/'],
-    ['cart', 'http://localhost:4202/'],
-    ['about', 'http://localhost:4203/'],
+    ['shop', 'shop@/shop/remoteEntry.js'],
+    ['cart', 'cart@/cart/remoteEntry.js'],
+    ['about', 'about@/about/remoteEntry.js'],
   ],
 };
 
