@@ -102,5 +102,6 @@
                 "unitTestRunner": "jest"
             }
         }
-    }
+    },
+    "neverConnectToCloud": true
 }
