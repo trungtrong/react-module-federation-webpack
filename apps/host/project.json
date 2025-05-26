@@ -3,13 +3,6 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/host/src",
   "projectType": "application",
-  "implicitDependencies": [
-    "shop",
-    "cart",
-    "about",
-    "shared-assets",
-    "shared-styles"
-  ],
   "tags": [
     "type:app-shell",
     "scope:cart"
