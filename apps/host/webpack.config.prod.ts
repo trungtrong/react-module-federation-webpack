@@ -25,9 +25,9 @@ const prodConfig: ModuleFederationConfig = {
    * ]
    */
   remotes: [
-    ['shop', 'shop@/shop/remoteEntry.js'],
-    ['cart', 'cart@/cart/remoteEntry.js'],
-    ['about', 'about@/about/remoteEntry.js'],
+    ['shop', 'shop@/react-module-federation-webpack/shop/remoteEntry.js'],
+    ['cart', 'cart@/react-module-federation-webpack/cart/remoteEntry.js'],
+    ['about', 'about@/react-module-federation-webpack/about/remoteEntry.js'],
   ],
 };
 
