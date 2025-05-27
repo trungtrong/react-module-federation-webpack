@@ -18,8 +18,8 @@
         "compiler": "babel",
         "outputPath": "dist/apps/cart",
         "index": "apps/cart/src/index.html",
-        "baseHref": "/react-module-federation-webpack",
-        "deployUrl": "/react-module-federation-webpack",
+        "baseHref": "/react-module-federation-webpack/",
+        "deployUrl": "/react-module-federation-webpack/",
         "main": "apps/cart/src/main.ts",
         "tsConfig": "apps/cart/tsconfig.app.json",
         "assets": [
