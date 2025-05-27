@@ -18,7 +18,8 @@
         "compiler": "babel",
         "outputPath": "dist/apps",
         "index": "apps/host/src/index.html",
-        "baseHref": "/",
+        "baseHref": "/react-module-federation-webpack",
+        "deployUrl": "/react-module-federation-webpack",
         "main": "apps/host/src/main.ts",
         "tsConfig": "apps/host/tsconfig.app.json",
         "assets": [
