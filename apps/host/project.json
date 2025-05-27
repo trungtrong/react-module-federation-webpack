@@ -77,10 +77,8 @@
                             "with": "apps/host/src/environments/environment.prod.ts"
                         }
                     ],
-                    "index": {
-                        "input": "apps/host/src/index.prod.html",
-                        "output": "index.html"
-                    },
+                    "index": "apps/host/src/index-files/prod/index.html",
+                    "generateIndexHtml": true,
                     "optimization": true,
                     "outputHashing": "all",
                     "sourceMap": false,
