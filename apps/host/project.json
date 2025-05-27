@@ -78,7 +78,6 @@
                         }
                     ],
                     "index": "apps/host/src/index-files/prod/index.html",
-                    "generateIndexHtml": true,
                     "optimization": true,
                     "outputHashing": "all",
                     "sourceMap": false,
