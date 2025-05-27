@@ -34,7 +34,7 @@ jobs:
         run: npm install
 
       - name: Build React - Nx Module Federation app
-        run: npm run build:host:prod -- --base-href /react-module-federation-webpack/ && npm run build:about:prod && npm run build:shop:prod && npm run build:card:prod
+        run: npm run build:all:prod
 
       - name: Create annotation for build error
         run: echo "::error file=app.js,line=1::Missing semicolon"
@@ -42,7 +42,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "dist/react-module-federation-webpack/browser/"
+          path: "dist/"
   # Deployment job
   deploy:
     environment:
