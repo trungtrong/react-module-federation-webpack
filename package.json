@@ -22,7 +22,7 @@
         "build:shop:staging": "cross-env TARGET_ENV=staging nx run shop:build:staging",
         "build:card:staging": "cross-env TARGET_ENV=staging nx run cart:build:staging",
         "// - BUILD PRODUCTION": "Build Production",
-        "build:all:prod": "nx run-many -t build",
+        "build:all:prod": "nx run-many -t build --skip-nx-cache",
         "build:host:prod": "npx nx run host:build:production",
         "build:about:prod": "npx nx run about:build:production",
         "build:shop:prod": "npx nx run shop:build:production",
