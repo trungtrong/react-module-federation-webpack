@@ -1,7 +1,7 @@
-import { useCallback, useEffect } from 'react';
+import { lazy, Suspense, useCallback, useEffect } from 'react';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { environment } from '@host/environment';
-
+//
 import { Button } from '@libs/shared/ui';
 // import { Test2Helper } from '@libs/shared/core';
 import { TestHelper } from '@libs/shared/utils';
@@ -10,8 +10,10 @@ import {
     useAppDispatch,
     useAppSelector,
     CounterSelector,
-    CounterActions
+    CounterActions,
 } from '@libs/shared/store';
+
+const RemoteAboutWidget = lazy(() => import('about/shared/features/RemoteAboutWidget'));
 
 const Home = () => {
     const dispatch = useAppDispatch();
@@ -33,7 +35,7 @@ const Home = () => {
     return (
         <div title="host" className="flex flex-col gap-4">
             <h1 className="bg-primary-100 m-0.5 truncate container">
-                Welcome Home {environment.name}
+                1. Welcome Home {environment.name}
             </h1>
 
             <div>
@@ -54,9 +56,9 @@ const Home = () => {
 
             {/* State Management */}
             <div>
-                <div>Counter - State Management</div>
+                <h1>2. Counter - State Management</h1>
 
-                <div className='flex flex-row gap-2'>
+                <div className="flex flex-row gap-2">
                     <Button
                         aria-label="Decrement value"
                         onClick={() => dispatch(CounterActions.decrement())}
@@ -71,6 +73,14 @@ const Home = () => {
                         Increase
                     </Button>
                 </div>
+            </div>
+
+            {/* Render the dynamically loaded RemoteWidget */}
+            <div>
+                <h1>3. Consume shared components from Remotes</h1>
+                <Suspense fallback={<div>Loading Remote Widget</div>}>
+                    <RemoteAboutWidget />
+                </Suspense>
             </div>
         </div>
     );

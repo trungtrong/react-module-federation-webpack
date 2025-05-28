@@ -37,6 +37,7 @@
                 "libs/shared/store/src/index.ts"
             ],
             "about/Module": ["apps/about/src/remote-entry.ts"],
+            "about/shared/features/RemoteAboutWidget": ["apps/about/src/shared/features/remote-widget"],
             "cart/Module": ["apps/cart/src/remote-entry.ts"],
             "shop/Module": ["apps/shop/src/remote-entry.ts"]
         }

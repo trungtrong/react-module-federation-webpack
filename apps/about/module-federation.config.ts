@@ -3,11 +3,13 @@ import { ModuleFederationConfig } from '@nx/module-federation';
 import { sharedDependencies } from '../../module-federation.base.config';
 
 const config: ModuleFederationConfig = {
-  name: 'about',
-  exposes: {
-    './Module': './src/remote-entry.ts',
-  },
-  shared: sharedDependencies
+    name: 'about',
+    exposes: {
+        './Module': './src/remote-entry.ts',
+        // Here we expose a component. The key is the public name, value is the path to the component file.
+        './shared/features/RemoteAboutWidget': './src/shared/features/remote-widget',
+    },
+    shared: sharedDependencies
 };
 
 /**
