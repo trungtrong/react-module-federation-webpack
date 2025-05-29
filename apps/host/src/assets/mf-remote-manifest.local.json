@@ -1,0 +1,14 @@
+[
+    {
+        "name": "shop",
+        "entry": "http://localhost:4201/remoteEntry.js"
+    },
+    {
+        "name": "cart",
+        "entry": "http://localhost:4202/remoteEntry.js"
+    },
+    {
+        "name": "about",
+        "entry": "http://localhost:4203/remoteEntry.js"
+    }
+]

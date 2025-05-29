@@ -1,0 +1,14 @@
+[
+    {
+        "name": "shop",
+        "entry": "shop@/react-module-federation-webpack/shop/remoteEntry.js"
+    },
+    {
+        "name": "cart",
+        "entry": "cart@/react-module-federation-webpack/cart/remoteEntry.js"
+    },
+    {
+        "name": "about",
+        "entry": "about@/react-module-federation-webpack/about/remoteEntry.js"
+    }
+]
