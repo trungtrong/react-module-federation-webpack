@@ -7,10 +7,10 @@
         "npm": "Please install by running: npm i"
     },
     "scripts": {
-        "start:host": "cross-env TARGET_ENV=local NODE_ENV=local npx nx run host:serve:local",
-        "start:about": "cross-env TARGET_ENV=local NODE_ENV=local nx run about:serve:local",
-        "start:shop": "cross-env TARGET_ENV=local NODE_ENV=local nx run shop:serve:local",
-        "start:card": "cross-env TARGET_ENV=local NODE_ENV=local nx run cart:serve:local",
+        "start:host": "cross-env TARGET_ENV=local NODE_ENV=local GENERATE_SOURCEMAP=false npx nx run host:serve:local",
+        "start:about": "cross-env TARGET_ENV=local NODE_ENV=local GENERATE_SOURCEMAP=false nx run about:serve:local",
+        "start:shop": "cross-env TARGET_ENV=local NODE_ENV=local GENERATE_SOURCEMAP=false nx run shop:serve:local",
+        "start:card": "cross-env TARGET_ENV=local NODE_ENV=local GENERATE_SOURCEMAP=false nx run cart:serve:local",
         "// - BUILD DEV": "Build Dev",
         "build:host:dev": "cross-env TARGET_ENV=dev nx run host:build:development",
         "build:about:dev": "cross-env TARGET_ENV=dev nx run about:build:development",
@@ -39,7 +39,7 @@
         "@babel/core": "^7.14.5",
         "@babel/preset-react": "^7.14.5",
         "@eslint/js": "^9.8.0",
-        "@module-federation/enhanced": "^0.9.0",
+        "@module-federation/enhanced": "^0.14.3",
         "@nx/cypress": "21.0.3",
         "@nx/eslint": "21.0.3",
         "@nx/eslint-plugin": "21.0.3",

@@ -1,14 +1,17 @@
 [
     {
         "name": "shop",
-        "entry": "http://localhost:4201/remoteEntry.js"
+        "entry": "http://localhost:4201/shop/remoteEntry.js",
+        "type": "module"
     },
     {
         "name": "cart",
-        "entry": "http://localhost:4202/remoteEntry.js"
+        "entry": "http://localhost:4202/cart/remoteEntry.js",
+        "type": "module"
     },
     {
         "name": "about",
-        "entry": "http://localhost:4203/remoteEntry.js"
+        "entry": "http://localhost:4203/about/remoteEntry.js",
+        "type": "module"
     }
 ]

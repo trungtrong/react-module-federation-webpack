@@ -28,22 +28,21 @@ const prodConfig: ModuleFederationConfig = {
     1. Manual Setting
         We can take the default Remotes config in webpack file (in browser/source/runtime.js)
     */
-    /*
     remotes: [
         ['shop', 'shop@/react-module-federation-webpack/shop/remoteEntry.js'],
         ['cart', 'cart@/react-module-federation-webpack/cart/remoteEntry.js'],
         ['about', 'about@/react-module-federation-webpack/about/remoteEntry.js'],
     ],
-    */
     /**
     * 2. Way 2: Flexible function to get Remotes
     */
+   /*
     remotes: async() => {
         console.log('flexible get remotes');
         const { getRemoteUrls } = await import('./src/utils/remotes.utils');
         const urls = await getRemoteUrls();
         return urls;
-    }
+    }*/
 };
 
 // Nx plugins for webpack to build config object from Nx options and context.
