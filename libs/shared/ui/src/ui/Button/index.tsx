@@ -2,6 +2,7 @@ import type { MouseEvent } from 'react';
 import { forwardRef } from 'react';
 
 import { ICommonProps } from '@libs/shared/core/models';
+import classNames from 'classnames';
 
 export interface ButtonProps extends ICommonProps {
     disabled?: boolean;
@@ -24,7 +25,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     return (
         <button
             ref={ref}
-            className={className}
+            className={classNames('button', className)}
             title={title ?? ''}
             data-disabled={disabled}
             onClick={handleClick}

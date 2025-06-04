@@ -1,10 +1,10 @@
-import { lazy, Suspense, useCallback, useEffect } from 'react';
+import { lazy, Suspense, useCallback, useEffect, useState } from 'react';
 // eslint-disable-next-line @nx/enforce-module-boundaries
 import { environment } from '@host/environment';
 //
 import { Button } from '@libs/shared/ui';
 // import { Test2Helper } from '@libs/shared/core';
-import { TestHelper } from '@libs/shared/utils';
+import { eventBus, TestHelper } from '@libs/shared/utils';
 // import { ENV } from '../helper';
 import {
     useAppDispatch,
@@ -13,17 +13,24 @@ import {
     CounterActions,
 } from '@libs/shared/store';
 
-const RemoteAboutWidget = lazy(() => import('about/shared/features/RemoteAboutWidget'));
+const RemoteAboutWidget = lazy(
+    () => import('about/shared/features/RemoteAboutWidget')
+);
 
 const Home = () => {
     const dispatch = useAppDispatch();
     const count = useAppSelector(CounterSelector.selectCount);
+    //
+    const [openPopup, setOpenPopup] = useState(false);
 
+    //#region State Management
     useEffect(() => {
         console.log('Home - environment', environment);
         console.log('process.env', process.env);
     }, []);
+    //#endregion
 
+    //#region Use static Class
     const decrement = useCallback(() => {
         TestHelper.decreaseCount();
     }, []);
@@ -31,6 +38,24 @@ const Home = () => {
     const increment = useCallback(() => {
         TestHelper.increaseCount();
     }, []);
+    //#endregion
+
+    //#region Event Bus with Subject
+    useEffect(() => {
+        eventBus.on({ eventName: 'remote:Widget' });
+        const { unsubscribe: unsubscribeEvent } = eventBus.subscribe<{ openPopup: boolean }>({
+            eventName: 'remote:Widget',
+            callback: (data) => {
+                setOpenPopup(data.openPopup);
+            },
+            clearAfterUnsubscribed: true
+        });
+
+        return () => {
+            unsubscribeEvent();
+        };
+    }, []);
+    //#endregion
 
     return (
         <div title="host" className="flex flex-col gap-4">
@@ -53,7 +78,7 @@ const Home = () => {
                     Increase
                 </Button>
             </div>
-
+            <br />
             {/* State Management */}
             <div>
                 <h1>2. Counter - State Management</h1>
@@ -74,13 +99,21 @@ const Home = () => {
                     </Button>
                 </div>
             </div>
-
+            <br />
             {/* Render the dynamically loaded RemoteWidget */}
             <div>
                 <h1>3. Consume shared components from Remotes</h1>
                 <Suspense fallback={<div>Loading Remote Widget</div>}>
                     <RemoteAboutWidget />
                 </Suspense>
+            </div>
+
+            <br />
+            {/* Event Bus */}
+            <div>
+                <h1>Event Bus</h1>
+
+                <div>Popup is {openPopup ? 'opened' : 'closed'} </div>
             </div>
         </div>
     );
