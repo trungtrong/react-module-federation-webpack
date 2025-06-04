@@ -3,10 +3,10 @@ interface IBroadcastChannelEmitter {
     doesBroadcastChannelInitialized(channelName: string): boolean;
     on(channelName: string): BroadcastChannel;
     getBroadcastChannel(channelName: string): BroadcastChannel | undefined
-    subscribe<T>(params: { channelName: string; callback: (event: MessageEvent<T>) => void; clearAfterUnsubscribed?: boolean }): { unsubscribe: () => void };
+    subscribe<T>(params: { channelName: string; callback: (event: MessageEvent<T>) => void }): void;
     emit<T>(params: { channelName: string, data: T }): void;
-    close(channelName: string): void;
-    clearAll(): void;
+    // close(channelName: string): void;
+    // clearAll(): void;
 }
 
 class BroadcastChannelEmitter implements IBroadcastChannelEmitter {
@@ -47,22 +47,14 @@ class BroadcastChannelEmitter implements IBroadcastChannelEmitter {
         return this._broadcastChannels.get(channelName);
     }
 
-    subscribe<T>(params: { channelName: string; callback: (event: MessageEvent<T>) => void; clearAfterUnsubscribed?: boolean }): { unsubscribe: () => void } {
+    subscribe<T>(params: { channelName: string; callback: (event: MessageEvent<T>) => void }) {
         if (!this.doesBroadcastChannelExist(params.channelName)
             || !this.doesBroadcastChannelInitialized(params.channelName)) {
-            return { unsubscribe: () => { } };
+            return;
         }
         //
         const broadcastChannel = this.getBroadcastChannel(params.channelName) as BroadcastChannel;
         broadcastChannel.onmessage = params.callback;
-
-        const unsubscribe = () => {
-            broadcastChannel.close();
-            if (params.clearAfterUnsubscribed) {
-                this.close(params.channelName);
-            }
-        }
-        return { unsubscribe };
     }
 
 
@@ -76,6 +68,7 @@ class BroadcastChannelEmitter implements IBroadcastChannelEmitter {
         broadcastChannel.postMessage(params.data);
     }
 
+    /*
     close(channelName: string) {
         if (!this.doesBroadcastChannelExist(channelName)
             || !this.doesBroadcastChannelInitialized(channelName)) {
@@ -99,7 +92,7 @@ class BroadcastChannelEmitter implements IBroadcastChannelEmitter {
             broadcastChannel.close();
         })
         this._broadcastChannels.clear();
-    }
+    }*/
 }
 
 const broadcastChannelEmitter = new BroadcastChannelEmitter();

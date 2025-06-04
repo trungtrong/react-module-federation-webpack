@@ -67,18 +67,14 @@ const Home = () => {
     //#region Broadcast Channel
     useEffect(() => {
         broadcastChannelEmitter.on('host:turnOnChannel');
-        const { unsubscribe: unsubscribeBroadcastChannel } = broadcastChannelEmitter.subscribe<{ turnOnChannel: boolean }>({
+        broadcastChannelEmitter.subscribe<{ turnOnChannel: boolean }>({
             channelName: 'host:turnOnChannel',
             callback: (event) => {
                 const data = event.data;
                 console.log('broadcastChannelEmitter event', event);
                 setTurnOnChannel(data.turnOnChannel);
             },
-            clearAfterUnsubscribed: true
         });
-        return () => {
-            unsubscribeBroadcastChannel();
-        }
     }, []);
 
     const toggleChannel = useCallback(() => {
