@@ -4,7 +4,11 @@ import { environment } from '@host/environment';
 //
 import { Button } from '@libs/shared/ui';
 // import { Test2Helper } from '@libs/shared/core';
-import { eventBus, TestHelper } from '@libs/shared/utils';
+import {
+    broadcastChannelEmitter,
+    eventBus,
+    TestHelper,
+} from '@libs/shared/utils';
 // import { ENV } from '../helper';
 import {
     useAppDispatch,
@@ -22,6 +26,7 @@ const Home = () => {
     const count = useAppSelector(CounterSelector.selectCount);
     //
     const [openPopup, setOpenPopup] = useState(false);
+    const [turnOnChannel, setTurnOnChannel] = useState(false);
 
     //#region State Management
     useEffect(() => {
@@ -43,18 +48,47 @@ const Home = () => {
     //#region Event Bus with Subject
     useEffect(() => {
         eventBus.on({ eventName: 'remote:Widget' });
-        const { unsubscribe: unsubscribeEvent } = eventBus.subscribe<{ openPopup: boolean }>({
+        const { unsubscribe: unsubscribeEvent } = eventBus.subscribe<{
+            openPopup: boolean;
+        }>({
             eventName: 'remote:Widget',
             callback: (data) => {
                 setOpenPopup(data.openPopup);
             },
-            clearAfterUnsubscribed: true
+            clearAfterUnsubscribed: true,
         });
 
         return () => {
             unsubscribeEvent();
         };
     }, []);
+    //#endregion
+
+    //#region Broadcast Channel
+    useEffect(() => {
+        broadcastChannelEmitter.on('host:turnOnChannel');
+        const { unsubscribe: unsubscribeBroadcastChannel } = broadcastChannelEmitter.subscribe<{ turnOnChannel: boolean }>({
+            channelName: 'host:turnOnChannel',
+            callback: (event) => {
+                const data = event.data;
+                console.log('broadcastChannelEmitter event', event);
+                setTurnOnChannel(data.turnOnChannel);
+            },
+            clearAfterUnsubscribed: true
+        });
+        return () => {
+            unsubscribeBroadcastChannel();
+        }
+    }, []);
+
+    const toggleChannel = useCallback(() => {
+        const currentChannelStatus = turnOnChannel;
+        broadcastChannelEmitter.emit({
+            channelName: 'host:turnOnChannel',
+            data: { turnOnChannel: !currentChannelStatus },
+        });
+        setTurnOnChannel(!currentChannelStatus);
+    }, [turnOnChannel]);
     //#endregion
 
     return (
@@ -102,18 +136,34 @@ const Home = () => {
             <br />
             {/* Render the dynamically loaded RemoteWidget */}
             <div>
-                <h1>3. Consume shared components from Remotes</h1>
-                <Suspense fallback={<div>Loading Remote Widget</div>}>
-                    <RemoteAboutWidget />
-                </Suspense>
+                <div>
+                    <h1>3. Consume shared components from Remotes</h1>
+                    <Suspense fallback={<div>Loading Remote Widget</div>}>
+                        <RemoteAboutWidget />
+                    </Suspense>
+                </div>
+
+                <br />
+                {/* Event Bus */}
+                <div>
+                    <h1>Event Bus</h1>
+
+                    <div>Popup is {openPopup ? 'opened' : 'closed'} </div>
+                </div>
             </div>
 
             <br />
-            {/* Event Bus */}
-            <div>
-                <h1>Event Bus</h1>
+            {/* Broadcast Channel */}
+            <div className="flex flex-col gap-2">
+                <h1>Broadcast Channel </h1>
+                <Button
+                    aria-label="Toggle Channel"
+                    onClick={() => toggleChannel()}
+                >
+                    Toggle Channel
+                </Button>
 
-                <div>Popup is {openPopup ? 'opened' : 'closed'} </div>
+                <div>Channel is {turnOnChannel ? 'opened' : 'closed'} </div>
             </div>
         </div>
     );

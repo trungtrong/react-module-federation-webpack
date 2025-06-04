@@ -3,13 +3,13 @@ import { Subject } from 'rxjs';
 type EventCallback<T> = (data: T) => void;
 
 interface IEventBus {
-    doesEventNameExist(eventName: string): void;
+    doesEventNameExist(eventName: string): boolean;
     on(params: { eventName: string }): void;
     getSubject<T>(params: { eventName: string }): Subject<T> | undefined;
     subscribe<T>(params: { eventName: string; callback: EventCallback<T>; turnOffAfterClosed?: boolean }): { unsubscribe: () => void };
     emit<T>(params: { eventName: string, data: T }): void;
     clearEvent(params: { eventName: string; }): void;
-    clear(): void;
+    clearAll(): void;
 }
 
 class EventBusEmitter implements IEventBus {
@@ -19,7 +19,7 @@ class EventBusEmitter implements IEventBus {
         this.observers = new Map();
     }
 
-    doesEventNameExist(eventName: string) {
+    doesEventNameExist(eventName: string): boolean {
         const doesExist = this.observers.has(eventName);
         if (!doesExist) {
             console.warn(`This event bus name ${eventName} doesn't exist`);
@@ -90,7 +90,7 @@ class EventBusEmitter implements IEventBus {
         this.observers.delete(params.eventName);
     }
 
-    clear() {
+    clearAll() {
         if (!this.observers.size) {
             return;
         }

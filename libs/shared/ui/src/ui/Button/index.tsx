@@ -25,7 +25,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     return (
         <button
             ref={ref}
-            className={classNames('button', className)}
+            className={classNames('button w-fit', className)}
             title={title ?? ''}
             data-disabled={disabled}
             onClick={handleClick}

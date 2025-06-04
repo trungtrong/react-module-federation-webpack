@@ -30,7 +30,7 @@ const AboutHome = () => {
     }, []);
 
     return (
-        <div className="bg-red-50 mt-0.5px flex flex-col gap-4">
+        <div className="bg-red-50 mt-0.5px flex flex-col gap-4 justify-start">
             <h1>Welcome to RemoteAbout!</h1>
 
             <div>
