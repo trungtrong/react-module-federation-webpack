@@ -15,6 +15,8 @@ import {
     useAppSelector,
     CounterSelector,
     CounterActions,
+    UserSelector,
+    fetchUsers,
 } from '@libs/shared/store';
 
 const RemoteAboutWidget = lazy(
@@ -27,6 +29,8 @@ const Home = () => {
     //
     const [openPopup, setOpenPopup] = useState(false);
     const [turnOnChannel, setTurnOnChannel] = useState(false);
+    // Redux Thunk
+    const { users, loading, error } = useAppSelector(UserSelector.getData);
 
     //#region State Management
     useEffect(() => {
@@ -85,6 +89,12 @@ const Home = () => {
         });
         setTurnOnChannel(!currentChannelStatus);
     }, [turnOnChannel]);
+    //#endregion
+
+    //#region Redux Thunk
+    useEffect(() => {
+        dispatch(fetchUsers());
+    }, [dispatch]);
     //#endregion
 
     return (
@@ -160,6 +170,16 @@ const Home = () => {
                 </Button>
 
                 <div>Channel is {turnOnChannel ? 'opened' : 'closed'} </div>
+            </div>
+
+            <br />
+            {/* Redux Thunk */}
+            <div className="flex flex-col gap-2">
+                <h1>4. Redux Thunk </h1>
+                {loading && <div>API is Loading...</div>}
+                {!loading && error && <div>Error: {error}</div>}
+                {!loading && !error && users?.length && <div>Users are available</div>}
+                {!loading && !error && !users?.length && <div>Users are not available</div>}
             </div>
         </div>
     );

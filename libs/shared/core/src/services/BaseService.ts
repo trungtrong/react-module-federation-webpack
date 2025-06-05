@@ -126,4 +126,5 @@ export class BaseService {
     }
 }
 
+// BaseService.initAxios();
 export default BaseService;

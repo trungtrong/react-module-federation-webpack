@@ -1,4 +1,5 @@
 export enum AppStateFeatureKeysEnum {
     Counter = 'counter',
-    Products = 'products'
+    Products = 'products',
+    User = 'user'
 }

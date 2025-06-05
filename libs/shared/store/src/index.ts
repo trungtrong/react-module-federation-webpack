@@ -4,3 +4,4 @@ export * from './rootReducer';
 export * from './store';
 export * from './counter';
 export * from './withReducer.hoc';
+export * from './user';
