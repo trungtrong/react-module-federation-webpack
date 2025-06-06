@@ -18,6 +18,7 @@ import {
     UserSelector,
     fetchUsers,
 } from '@libs/shared/store';
+import { useGetUserInfoFacade } from './Home.facade';
 
 const RemoteAboutWidget = lazy(
     () => import('about/shared/features/RemoteAboutWidget')
@@ -31,6 +32,8 @@ const Home = () => {
     const [turnOnChannel, setTurnOnChannel] = useState(false);
     // Redux Thunk
     const { users, loading, error } = useAppSelector(UserSelector.getData);
+    // Facade
+    const { isLoading, getUserInfo } = useGetUserInfoFacade();
 
     //#region State Management
     useEffect(() => {
@@ -180,6 +183,18 @@ const Home = () => {
                 {!loading && error && <div>Error: {error}</div>}
                 {!loading && !error && users?.length && <div>Users are available</div>}
                 {!loading && !error && !users?.length && <div>Users are not available</div>}
+            </div>
+
+            <br />
+            {/* Facade */}
+            <div className="flex flex-col gap-2">
+                <h1>5. Facade </h1>
+                <Button
+                    aria-label="getUserInfo"
+                    onClick={() => getUserInfo()}
+                >
+                    Get User Info
+                </Button>
             </div>
         </div>
     );
