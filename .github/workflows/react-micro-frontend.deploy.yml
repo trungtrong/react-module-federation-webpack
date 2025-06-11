@@ -36,9 +36,6 @@ jobs:
       - name: Build React - Nx Module Federation app
         run: npm run build:all:prod
 
-      - name: Create annotation for build error
-        run: echo "::error file=app.js,line=1::Missing semicolon"
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
